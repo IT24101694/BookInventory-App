@@ -14,7 +14,7 @@ const IssueSellBook = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/books');
+      const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`);
       setBooks(res.data);
     } catch (err) {
       console.error(err);
@@ -33,7 +33,7 @@ const IssueSellBook = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/transactions/issue-sell', {
+      const res = await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/transactions/issue-sell`, {
         bookId: selectedBookId,
         type: formData.type,
         quantity: parseInt(formData.quantity)

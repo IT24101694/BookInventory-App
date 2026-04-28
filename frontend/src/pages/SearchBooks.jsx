@@ -11,7 +11,7 @@ const SearchBooks = () => {
     e.preventDefault();
     if (!query) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/books/search?q=${query}`);
+      const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books/search?q=${query}`);
       setResults(res.data);
       setSearched(true);
     } catch (err) {

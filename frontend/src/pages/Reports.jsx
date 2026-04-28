@@ -8,7 +8,7 @@ const Reports = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/transactions');
+        const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/transactions`);
         setTransactions(res.data);
       } catch (err) {
         console.error(err);

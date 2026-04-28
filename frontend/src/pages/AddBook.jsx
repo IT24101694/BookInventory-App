@@ -12,7 +12,7 @@ const AddBook = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/books', formData);
+      await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`, formData);
       setMessage('Book added successfully!');
       setFormData({ title: '', author: '', price: '', quantity: '', category: '' });
       setTimeout(() => setMessage(''), 3000);

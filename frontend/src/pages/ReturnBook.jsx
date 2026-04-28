@@ -14,7 +14,7 @@ const ReturnBook = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/books');
+      const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`);
       setBooks(res.data);
     } catch (err) {
       console.error(err);
@@ -31,7 +31,7 @@ const ReturnBook = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/transactions/return', {
+      const res = await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/transactions/return`, {
         bookId: selectedBookId,
         quantity: parseInt(quantity)
       });
