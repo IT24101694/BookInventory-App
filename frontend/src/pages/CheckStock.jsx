@@ -7,7 +7,7 @@ const CheckStock = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`);
         setBooks(res.data);
       } catch (err) {
         console.error(err);

@@ -13,7 +13,7 @@ const UpdateBook = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books`);
       setBooks(res.data);
     } catch (err) {
       console.error(err);
@@ -33,7 +33,7 @@ const UpdateBook = () => {
     if (!selectedBook) return;
     
     try {
-      await axios.put(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books/${selectedBook._id}`, formData);
+      await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/books/${selectedBook._id}`, formData);
       setMessage('Book updated successfully!');
       fetchBooks();
       setTimeout(() => setMessage(''), 3000);
